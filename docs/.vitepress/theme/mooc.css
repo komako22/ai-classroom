@@ -31,7 +31,8 @@
   max-width: 100% !important;
 }
 
-.site-shell.is-article h1:first-child {
+/* 有自定义 ArticleHero 时才藏默认 h1，避免匹配失败时整页只剩空白 */
+.site-shell.is-article:has(.article-hero-banner) h1:first-child {
   display: none;
 }
 

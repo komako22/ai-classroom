@@ -92,7 +92,7 @@ function serializeFrontmatter(meta, slug, categoryId) {
   const lines = ['---']
   const order = ['title', 'description', 'author', 'date', 'category', 'tags', 'cover', 'layout', 'sidebar', 'aside']
   const merged = {
-    layout: 'article',
+    layout: 'doc',
     sidebar: false,
     aside: true,
     category: categoryId,

@@ -35,10 +35,15 @@ export function useArticles() {
   const authors = computed(() => data.authors)
 
   function getByLink(path: string) {
-    const normalized = path.replace(/\.html$/, '').replace(/\/index$/, '')
+    const normalized = path
+      .replace(/\\/g, '/')
+      .replace(/^\//, '')
+      .replace(/\.html$/, '')
+      .replace(/\.md$/, '')
+      .replace(/\/index$/, '')
     return data.articles.find((a) => {
       const link = a.link.replace(/^\//, '')
-      return normalized.endsWith(link) || normalized === link
+      return normalized === link || normalized.endsWith(`/${link}`) || normalized.endsWith(link)
     })
   }
 
